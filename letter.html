@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,6 @@
   <style>
     * {
       box-sizing: border-box;
-
       margin: 0;
       padding: 0;
     }
@@ -61,11 +61,39 @@
       font-size: 1.2rem !important;
     }
 
+    /* Music Button */
+    .music-button {
+      display: block;
+      margin: 25px auto 0;
+
+      padding: 13px 25px;
+
+      border: none;
+      border-radius: 50px;
+
+      background: #d94f7c;
+      color: white;
+
+      font-size: 1rem;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      box-shadow: 0 8px 20px rgba(217, 79, 124, 0.25);
+
+      transition: 0.3s;
+    }
+
+    .music-button:hover {
+      transform: translateY(-3px);
+      background: #c83f6c;
+    }
+
     .back {
       display: block;
       width: fit-content;
 
-      margin: 30px auto 0;
+      margin: 15px auto 0;
 
       padding: 13px 27px;
 
@@ -175,11 +203,40 @@
 
     </div>
 
+    <!-- MUSIC -->
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-button" id="musicButton" onclick="toggleMusic()">
+      🎵 Play Music
+    </button>
+
     <a href="index.html" class="back">
       ← Back to our memories
     </a>
 
   </div>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+    const musicButton = document.getElementById("musicButton");
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        musicButton.textContent = "⏸️ Pause Music";
+      } else {
+        music.pause();
+        musicButton.textContent = "🎵 Play Music";
+      }
+    }
+  </script>
+
+</body>
+</html>
+```
+
 
 </body>
 ```html
