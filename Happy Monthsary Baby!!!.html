@@ -1,0 +1,296 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 8th Monthsary Baby!! 💗</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #fff0f5;
+      color: #5a3040;
+      overflow-x: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 22px;
+      animation: floatUp linear forwards;
+      pointer-events: none;
+      z-index: 10;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      background:
+        radial-gradient(circle at top left, #ffd6e5, transparent 35%),
+        radial-gradient(circle at bottom right, #ffc1d8, transparent 35%),
+        #fff0f5;
+      position: relative;
+    }
+
+    .hero-content {
+      animation: fadeIn 2s ease;
+    }
+
+    .small-text {
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+      color: #a85573;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 9vw, 7rem);
+      line-height: 1;
+      color: #d94f7c;
+      text-shadow: 3px 3px 0 #ffd1df;
+      margin-bottom: 25px;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 50px;
+      background: #d94f7c;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(217, 79, 124, 0.3);
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-4px) scale(1.03);
+      background: #c83f6c;
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #d94f7c;
+      margin-bottom: 45px;
+    }
+
+    /* Letter */
+    .letter-section {
+      background: white;
+    }
+
+    .letter {
+      max-width: 800px;
+      margin: auto;
+      background: #fff7fa;
+      padding: 45px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(100, 40, 60, 0.1);
+      font-size: 1.1rem;
+      line-height: 1.9;
+    }
+
+    .letter p {
+      margin-bottom: 20px;
+    }
+
+    .signature {
+      text-align: right;
+      color: #d94f7c;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Photos */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .photo {
+      height: 280px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #ffdce8;
+      box-shadow: 0 10px 25px rgba(100, 40, 60, 0.12);
+      transition: 0.4s;
+    }
+
+    .photo:hover {
+      transform: translateY(-8px) rotate(1deg);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Ending */
+    .ending {
+      min-height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: #ffdce8;
+    }
+
+    .ending h2 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      color: #c83f6c;
+      margin-bottom: 20px;
+    }
+
+    .ending p {
+      font-size: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #d94f7c;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 70px 5%;
+      }
+
+      .letter {
+        padding: 28px;
+      }
+
+      .photo {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="small-text">💗 FOR MY BABY 💗</div>
+
+      <h1>Happy 8th<br>Monthsary Baby!!</h1>
+
+      <p class="subtitle">
+        Another month of love, laughter, memories, and us. 🥰
+      </p>
+
+     <a href="letter.html" class="button">Open My Letter 💌</a>
+    </div>
+  </header>
+
+
+  <!-- ENDING -->
+  <section class="ending">
+    <div>
+      <h2>Always You. ❤️</h2>
+
+      <p>
+        Happy 8th Monthsary, Baby!! 🥰
+      </p>
+
+      <br>
+
+      <p>
+        Here's to more smiles, more memories,<br>
+        and more beautiful moments together. 💗
+      </p>
+    </div>
+  </section>
+
+
+  <footer>
+    Made with ❤️ just for you.
+  </footer>
+
+
+  <!-- FLOATING HEARTS -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+
+      heart.classList.add("heart");
+
+      const hearts = ["❤️", "💗", "💕", "💖", "💘", "🌸"];
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 5) + "s";
+      heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 9000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
+```
