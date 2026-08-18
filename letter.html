@@ -19,7 +19,7 @@
   font-size: 24px;
   pointer-events: none;
   user-select: none;
-  z-index: 9999;
+  z-index: 0;
 
   animation: floatHeart linear forwards;
   opacity: 0;
@@ -61,6 +61,8 @@
     .letter-container {
       max-width: 850px;
       margin: auto;
+      position: relative;
+      z-index: 1;
     }
 
     .section-title {
@@ -235,90 +237,105 @@
 
     </div>
 
-<script>
-  // =========================
-  // MUSIC 🎵
-  // =========================
 
-  const music = document.getElementById("bgMusic");
-  const musicButton = document.getElementById("musicButton");
+    <!-- MUSIC -->
+    <audio id="bgMusic" loop preload="auto">
+      <source src="./music.mp3" type="audio/mpeg">
+    </audio>
 
-  function toggleMusic() {
-    if (music.paused) {
-      music.play()
-        .then(() => {
-          musicButton.textContent = "⏸️ Pause Music";
-        })
-        .catch((error) => {
-          console.error("Music error:", error);
-          alert(
-            "The music file could not be played. Check that music.mp3 is uploaded to GitHub and is in the same folder as this HTML file."
-          );
-        });
-    } else {
-      music.pause();
-      musicButton.textContent = "🎵 Play Music";
+    <button
+      class="music-button"
+      id="musicButton"
+      onclick="toggleMusic()"
+    >
+      🎵 Play Music
+    </button>
+
+  </div>
+
+  <script>
+    // =========================
+    // MUSIC 🎵
+    // =========================
+
+    const music = document.getElementById("bgMusic");
+    const musicButton = document.getElementById("musicButton");
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play()
+          .then(() => {
+            musicButton.textContent = "⏸️ Pause Music";
+          })
+          .catch((error) => {
+            console.error("Music error:", error);
+
+            alert(
+              "The music file could not be played. Make sure music.mp3 is in the same folder as index.html."
+            );
+          });
+      } else {
+        music.pause();
+        musicButton.textContent = "🎵 Play Music";
+      }
     }
-  }
 
 
-  // =========================
-  // FLOATING HEARTS 💗
-  // =========================
+    // =========================
+    // FLOATING HEARTS 💗
+    // =========================
 
-  const heartSymbols = [
-    "💗",
-    "💕",
-    "💖",
-    "💓",
-    "💘",
-    "❤️",
-    "💞"
-  ];
+    const heartSymbols = [
+      "💗",
+      "💕",
+      "💖",
+      "💓",
+      "💘",
+      "❤️",
+      "💞"
+    ];
 
-  function createHeart() {
-    const heart = document.createElement("div");
+    function createHeart() {
+      const heart = document.createElement("div");
 
-    heart.classList.add("floating-heart");
+      heart.classList.add("floating-heart");
 
-    heart.textContent =
-      heartSymbols[
-        Math.floor(Math.random() * heartSymbols.length)
-      ];
+      heart.textContent =
+        heartSymbols[
+          Math.floor(Math.random() * heartSymbols.length)
+        ];
 
-    // Random horizontal position
-    heart.style.left =
-      Math.random() * 100 + "vw";
+      // Random horizontal position
+      heart.style.left =
+        Math.random() * 100 + "vw";
 
-    // Random size
-    const size =
-      Math.random() * 20 + 15;
+      // Random size
+      heart.style.fontSize =
+        Math.random() * 20 + 15 + "px";
 
-    heart.style.fontSize =
-      size + "px";
+      // Random speed
+      const duration =
+        Math.random() * 5 + 5;
 
-    // Random animation speed
-    const duration =
-      Math.random() * 5 + 5;
+      heart.style.animationDuration =
+        duration + "s";
 
-    heart.style.animationDuration =
-      duration + "s";
+      document.body.appendChild(heart);
 
-    document.body.appendChild(heart);
+      // Remove after animation
+      setTimeout(() => {
+        heart.remove();
+      }, duration * 1000);
+    }
 
-    // Remove after animation
-    setTimeout(() => {
-      heart.remove();
-    }, duration * 1000);
-  }
+    // Keep creating hearts
+    setInterval(createHeart, 500);
 
-  // Create hearts continuously
-  setInterval(createHeart, 500);
+    // Initial hearts
+    for (let i = 0; i < 8; i++) {
+      setTimeout(createHeart, i * 300);
+    }
+  </script>
 
-  // Create some hearts immediately
-  for (let i = 0; i < 8; i++) {
-    setTimeout(createHeart, i * 300);
-  }
-</script>
 </body>
 </html>
