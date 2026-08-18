@@ -98,8 +98,10 @@
     /* Music Button */
     .music-button {
       display: block;
-      margin: 25px auto 0;
+      position: relative;
+      z-index: 10;
 
+      margin: 25px auto 0;
       padding: 13px 25px;
 
       border: none;
@@ -114,29 +116,6 @@
       cursor: pointer;
 
       box-shadow: 0 8px 20px rgba(217, 79, 124, 0.25);
-
-      transition: 0.3s;
-    }
-
-    .music-button:hover {
-      transform: translateY(-3px);
-      background: #c83f6c;
-    }
-
-    .back {
-      display: block;
-      width: fit-content;
-
-      margin: 15px auto 0;
-
-      padding: 13px 27px;
-
-      border-radius: 50px;
-      background: #d94f7c;
-      color: white;
-
-      text-decoration: none;
-      font-weight: bold;
 
       transition: 0.3s;
     }
