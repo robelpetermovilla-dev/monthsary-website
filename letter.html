@@ -235,16 +235,11 @@
 
     </div>
 
-<!-- MUSIC -->
-<audio id="bgMusic" loop preload="auto">
-  <source src="./music.mp3" type="audio/mpeg">
-</audio>
-
-<button class="music-button" id="musicButton" onclick="toggleMusic()">
-  🎵 Play Music
-</button>
-
 <script>
+  // =========================
+  // MUSIC 🎵
+  // =========================
+
   const music = document.getElementById("bgMusic");
   const musicButton = document.getElementById("musicButton");
 
@@ -256,49 +251,74 @@
         })
         .catch((error) => {
           console.error("Music error:", error);
-          alert("The music file could not be played. Check that music.mp3 is uploaded to GitHub.");
+          alert(
+            "The music file could not be played. Check that music.mp3 is uploaded to GitHub and is in the same folder as this HTML file."
+          );
         });
     } else {
       music.pause();
       musicButton.textContent = "🎵 Play Music";
     }
   }
-<script>
- 
 
-  // Floating Hearts 💗
-  const heartSymbols = ["💗", "💕", "💖", "💓", "💘", "❤️", "💞"];
+
+  // =========================
+  // FLOATING HEARTS 💗
+  // =========================
+
+  const heartSymbols = [
+    "💗",
+    "💕",
+    "💖",
+    "💓",
+    "💘",
+    "❤️",
+    "💞"
+  ];
 
   function createHeart() {
     const heart = document.createElement("div");
 
     heart.classList.add("floating-heart");
+
     heart.textContent =
-      heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+      heartSymbols[
+        Math.floor(Math.random() * heartSymbols.length)
+      ];
 
-    heart.style.left = Math.random() * 100 + "vw";
+    // Random horizontal position
+    heart.style.left =
+      Math.random() * 100 + "vw";
 
-    const size = Math.random() * 20 + 15;
-    heart.style.fontSize = size + "px";
+    // Random size
+    const size =
+      Math.random() * 20 + 15;
 
-    const duration = Math.random() * 5 + 5;
-    heart.style.animationDuration = duration + "s";
+    heart.style.fontSize =
+      size + "px";
 
-    heart.style.animationDelay = Math.random() * 2 + "s";
+    // Random animation speed
+    const duration =
+      Math.random() * 5 + 5;
+
+    heart.style.animationDuration =
+      duration + "s";
 
     document.body.appendChild(heart);
 
+    // Remove after animation
     setTimeout(() => {
       heart.remove();
-    }, (duration + 2) * 1000);
+    }, duration * 1000);
   }
 
+  // Create hearts continuously
   setInterval(createHeart, 500);
 
+  // Create some hearts immediately
   for (let i = 0; i < 8; i++) {
     setTimeout(createHeart, i * 300);
   }
 </script>
-
 </body>
 </html>
